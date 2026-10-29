@@ -64,7 +64,7 @@ If you use the [Sine](https://github.com/CosmoCreeper/Sine) mod manager, you can
    https://github.com/catppuccin/zen-browser/tree/main/themes/Mocha/Mauve
    ```
 
-Sine keeps the theme updated as this repository changes. Set Zen's color scheme to match the flavor, as described in the note above.
+Sine keeps the theme updated as this repository changes. Set Zen's light and dark settings to match the flavor, as described in [Light and dark mode](#-light-and-dark-mode).
 
 ## 💝 Thanks to
 
