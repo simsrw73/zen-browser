@@ -37,11 +37,19 @@
 ## Usage
 
 1. [Create a `chrome` folder](https://www.userchrome.org/how-create-userchrome-css.html) in your Zen Browser's profile directory and configure it to enable userstyles.
-2. Copy the `userChrome.css`, `userContent.css`, and `zen-logo.svg` files of your preferred theme from the [`themes/`](themes/) directory in this repository to your `chrome` folder.
+2. Copy the `userChrome.css`, `userContent.css`, and `zen-logo-<flavor>.svg` files of your preferred theme from the [`themes/`](themes/) directory in this repository to your `chrome` folder.
 3. Enable `toolkit.legacyUserProfileCustomizations.stylesheets` in [about:config](about:config).
 
-> [!NOTE]
-> If you're using the [🌻 Latte](themes/Latte/) theme, set your browser to light mode. For [🪴 Frappé](themes/Frappe/), [🌺 Macchiato](themes/Macchiato/), or [🌿 Mocha](themes/Mocha/), enable dark mode to apply the theme correctly.
+### 🌗 Light and dark mode
+
+[🌻 Latte](themes/Latte/) is the light flavor. [🪴 Frappé](themes/Frappe/), [🌺 Macchiato](themes/Macchiato/), and [🌿 Mocha](themes/Mocha/) are dark. Zen has two separate light and dark settings, and the theme follows both:
+
+| Setting | What it changes | Where to find it |
+| --- | --- | --- |
+| **Browser appearance** | The browser window: sidebar, tabs, menus, and address bar | Right-click the tab sidebar, select **Edit Theme**, and use the auto, light, and dark icons at the top. You can also use **View → Appearance** in the menu bar. Press <kbd>Alt</kbd> to show the menu bar. |
+| **Website appearance** | Web pages and Zen's own pages, such as Settings and the new tab page | **Settings → Website appearance** (`about:preferences#appearance`) |
+
+Set both to match your flavor, or set both to follow your system: **Auto** for browser appearance and **System** for website appearance.
 
 > [!TIP]
 > The theme replaces Zen's per-space gradient backgrounds with the flavor's colors. To keep your space gradients, delete the block marked `Space (workspace) gradients` in `userChrome.css`.
@@ -54,7 +62,7 @@
 
 - **Q:** Can I automatically switch flavors between light and dark mode?
   
-  **A:** Yes! You can concatenate the `userChrome.css` and `userContent.css` files for 🌻 Latte (light mode) along with one of the dark mode themes like 🪴 Frappé, 🌺 Macchiato, or 🌿 Mocha. The browser will automatically switch between these themes when toggling between light and dark mode.
+  **A:** Yes! You can concatenate the `userChrome.css` and `userContent.css` files for 🌻 Latte (light mode) along with one of the dark mode themes like 🪴 Frappé, 🌺 Macchiato, or 🌿 Mocha. The theme then switches flavors with Zen's light and dark settings, described in [Light and dark mode](#-light-and-dark-mode).
 
 ## 💝 Thanks to
 
