@@ -1,6 +1,10 @@
 /* Catppuccin Macchiato Green userChrome.css */
 
-@media (prefers-color-scheme: dark) {
+/*
+ * Follow Zen's own color scheme setting (zen.view.window.scheme: 0 dark, 1 light, 2 system).
+ * In the browser chrome, prefers-color-scheme follows the OS instead of that setting.
+ */
+@media -moz-pref("zen.view.window.scheme", 0), (-moz-pref("zen.view.window.scheme", 2)) and (prefers-color-scheme: dark) {
   :root {
     --ctp-scheme: dark;
     --ctp-rosewater: #f4dbd6;
@@ -209,6 +213,13 @@
       --zen-main-browser-background-old: var(--ctp-crust) !important;
       --zen-main-browser-background-toolbar-old: var(--ctp-crust) !important;
     }
+  }
+
+  /* Zen also writes each space's text color, accent and color scheme onto its <zen-workspace> */
+  zen-workspace {
+    --toolbox-textcolor: var(--ctp-text) !important;
+    --zen-primary-color: var(--ctp-accent) !important;
+    color-scheme: var(--ctp-scheme) !important;
   }
 
   /* A space gradient can flip #browser to light/dark; keep the scheme matching the flavor */
