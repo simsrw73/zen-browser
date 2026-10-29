@@ -43,6 +43,9 @@
 > [!NOTE]
 > If you're using the [🌻 Latte](themes/Latte/) theme, set your browser to light mode. For [🪴 Frappé](themes/Frappe/), [🌺 Macchiato](themes/Macchiato/), or [🌿 Mocha](themes/Mocha/), enable dark mode to apply the theme correctly.
 
+> [!TIP]
+> The theme replaces Zen's per-space gradient backgrounds with the flavor's colors. To keep your space gradients, delete the block marked `Space (workspace) gradients` in `userChrome.css`.
+
 ## 🙋 FAQ
 
 - **Q:** What if I already have a `userChrome.css` and/or `userContent.css` configuration?

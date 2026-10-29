@@ -1,38 +1,201 @@
-/* Catppuccin Mocha Sky userContent.css*/
+/* Catppuccin Mocha Sky userContent.css */
 
 @media (prefers-color-scheme: dark) {
 
-  /* Common variables affecting all pages */
+  /* Scoped to about: pages so websites never see these variables */
   @-moz-document url-prefix("about:") {
     :root {
-      --in-content-page-color: #cdd6f4 !important;
-      --color-accent-primary: #89dceb !important;
-      --color-accent-primary-hover: rgb(159, 227, 239) !important;
-      --color-accent-primary-active: rgb(137, 196, 235) !important;
-      background-color: #1e1e2e !important;
-      --in-content-page-background: #1e1e2e !important;
+      --ctp-scheme: dark;
+      --ctp-rosewater: #f5e0dc;
+      --ctp-flamingo: #f2cdcd;
+      --ctp-pink: #f5c2e7;
+      --ctp-mauve: #cba6f7;
+      --ctp-red: #f38ba8;
+      --ctp-maroon: #eba0ac;
+      --ctp-peach: #fab387;
+      --ctp-yellow: #f9e2af;
+      --ctp-green: #a6e3a1;
+      --ctp-teal: #94e2d5;
+      --ctp-sky: #89dceb;
+      --ctp-sapphire: #74c7ec;
+      --ctp-blue: #89b4fa;
+      --ctp-lavender: #b4befe;
+      --ctp-text: #cdd6f4;
+      --ctp-subtext1: #bac2de;
+      --ctp-subtext0: #a6adc8;
+      --ctp-overlay2: #9399b2;
+      --ctp-overlay1: #7f849c;
+      --ctp-overlay0: #6c7086;
+      --ctp-surface2: #585b70;
+      --ctp-surface1: #45475a;
+      --ctp-surface0: #313244;
+      --ctp-base: #1e1e2e;
+      --ctp-mantle: #181825;
+      --ctp-crust: #11111b;
+      --ctp-accent: #89dceb;
+      --ctp-accent-hover: color-mix(in srgb, var(--ctp-accent) 85%, var(--ctp-text));
+      --ctp-accent-active: color-mix(in srgb, var(--ctp-accent) 70%, var(--ctp-text));
+      /* Text drawn on top of an accent-colored fill */
+      --ctp-on-accent: var(--ctp-crust);
     }
 
-  }
+    /*
+     * Shared Zen + Firefox design tokens. Keep in sync with userChrome.tera: Zen loads
+     * zen-theme.css in both the browser chrome and every about: page, so both need them.
+     * User-sheet !important beats Zen's own !important values.
+     */
+    :root {
+      color-scheme: var(--ctp-scheme) !important;
 
-  /* Variables and styles specific to about:newtab and about:home */
-  @-moz-document url("about:newtab"), url("about:home") {
+      /* Zen core */
+      --zen-primary-color: var(--ctp-accent) !important;
+      --zen-branding-dark: var(--ctp-crust) !important;
+      --zen-branding-paper: var(--ctp-base) !important;
+      --zen-branding-bg: var(--ctp-base) !important;
+      --zen-branding-bg-reverse: var(--ctp-text) !important;
+      --zen-colors-primary: var(--ctp-surface0) !important;
+      --zen-colors-secondary: var(--ctp-surface1) !important;
+      --zen-colors-tertiary: var(--ctp-mantle) !important;
+      --zen-colors-hover-bg: var(--ctp-surface1) !important;
+      --zen-colors-primary-foreground: var(--ctp-text) !important;
+      --zen-colors-border: var(--ctp-surface0) !important;
+      --zen-colors-border-contrast: color-mix(in srgb, var(--ctp-surface1) 50%, transparent) !important;
+      --zen-colors-input-bg: var(--ctp-surface0) !important;
+      --zen-input-border-color: var(--ctp-surface1) !important;
+      --zen-dialog-background: var(--ctp-base) !important;
+      --zen-in-content-dialog-background: var(--ctp-base) !important;
+      --zen-urlbar-background: var(--ctp-surface0) !important;
+      --zen-secondary-btn-color: var(--ctp-text) !important;
+
+      /* Buttons (Zen remaps Firefox's button tokens onto these) */
+      --in-content-primary-button-background: var(--ctp-accent) !important;
+      --in-content-primary-button-background-hover: var(--ctp-accent-hover) !important;
+      --in-content-primary-button-background-active: var(--ctp-accent-active) !important;
+      --in-content-primary-button-text-color: var(--ctp-on-accent) !important;
+      --in-content-accent-color: var(--ctp-accent) !important;
+      --button-text-color: var(--ctp-text) !important;
+      --button-text-color-primary: var(--ctp-on-accent) !important;
+      --button-background-color-destructive: var(--ctp-red) !important;
+      --button-background-color-destructive-hover: color-mix(in srgb, var(--ctp-red) 85%, var(--ctp-text)) !important;
+      --button-background-color-destructive-active: color-mix(in srgb, var(--ctp-red) 70%, var(--ctp-text)) !important;
+      --button-text-color-destructive: var(--ctp-on-accent) !important;
+
+      /* Firefox design-system tokens */
+      --color-accent-primary: var(--ctp-accent) !important;
+      --color-accent-primary-hover: var(--ctp-accent-hover) !important;
+      --color-accent-primary-active: var(--ctp-accent-active) !important;
+      --text-color-accent-primary-selected: var(--ctp-on-accent) !important;
+      --focus-outline-color: var(--ctp-accent) !important;
+      --link-color: var(--ctp-accent) !important;
+      --link-color-hover: var(--ctp-accent-hover) !important;
+      --link-color-active: var(--ctp-accent-active) !important;
+      --link-color-visited: var(--ctp-accent) !important;
+      --text-color: var(--ctp-text) !important;
+      --icon-color: var(--ctp-subtext1) !important;
+      --background-color-canvas: var(--ctp-base) !important;
+      --background-color-box: var(--ctp-mantle) !important;
+      --background-color-box-info: var(--ctp-surface0) !important;
+      --background-color-list-item-hover: color-mix(in srgb, var(--ctp-accent) 20%, transparent) !important;
+      --border-color: var(--ctp-surface1) !important;
+      --border-color-interactive: var(--ctp-surface2) !important;
+      --border-color-deemphasized: var(--ctp-surface0) !important;
+      --input-border-color: var(--ctp-surface1) !important;
+      --table-row-background-color-alternate: var(--ctp-mantle) !important;
+      --text-color-error: var(--ctp-red) !important;
+      --border-color-error: var(--ctp-red) !important;
+      --icon-color-critical: var(--ctp-red) !important;
+      --icon-color-warning: var(--ctp-yellow) !important;
+      --icon-color-success: var(--ctp-green) !important;
+      --icon-color-information: var(--ctp-blue) !important;
+      --background-color-critical: color-mix(in srgb, var(--ctp-red) 18%, var(--ctp-base)) !important;
+      --background-color-warning: color-mix(in srgb, var(--ctp-yellow) 18%, var(--ctp-base)) !important;
+      --background-color-success: color-mix(in srgb, var(--ctp-green) 18%, var(--ctp-base)) !important;
+      --background-color-information: color-mix(in srgb, var(--ctp-blue) 18%, var(--ctp-base)) !important;
+
+      /* Panels, popups, menus */
+      --arrowpanel-background: var(--ctp-base) !important;
+      --arrowpanel-color: var(--ctp-text) !important;
+      --arrowpanel-border-color: var(--ctp-surface0) !important;
+      --panel-background-color: var(--ctp-base) !important;
+      --panel-text-color: var(--ctp-text) !important;
+      --panel-border-color: var(--ctp-surface0) !important;
+      --panel-separator-color: var(--ctp-surface0) !important;
+      --popup-background-color: var(--ctp-base) !important;
+      --popup-border-color: var(--ctp-surface0) !important;
+    }
+
+    /* Container (identity) colors */
+    .identity-color-blue { --identity-tab-color: var(--ctp-blue) !important; --identity-icon-color: var(--ctp-blue) !important; }
+    .identity-color-turquoise { --identity-tab-color: var(--ctp-teal) !important; --identity-icon-color: var(--ctp-teal) !important; }
+    .identity-color-green { --identity-tab-color: var(--ctp-green) !important; --identity-icon-color: var(--ctp-green) !important; }
+    .identity-color-yellow { --identity-tab-color: var(--ctp-yellow) !important; --identity-icon-color: var(--ctp-yellow) !important; }
+    .identity-color-orange { --identity-tab-color: var(--ctp-peach) !important; --identity-icon-color: var(--ctp-peach) !important; }
+    .identity-color-red { --identity-tab-color: var(--ctp-red) !important; --identity-icon-color: var(--ctp-red) !important; }
+    .identity-color-pink { --identity-tab-color: var(--ctp-pink) !important; --identity-icon-color: var(--ctp-pink) !important; }
+    .identity-color-purple { --identity-tab-color: var(--ctp-mauve) !important; --identity-icon-color: var(--ctp-mauve) !important; }
+
+    /* --- In-content pages --- */
 
     :root {
-      --newtab-background-color: #1e1e2e !important;
-      --newtab-background-color-secondary: #313244 !important;
-      --newtab-element-hover-color: #313244 !important;
-      --newtab-text-primary-color: #cdd6f4 !important;
-      --newtab-wordmark-color: #cdd6f4 !important;
-      --newtab-primary-action-background: #89dceb !important;
+      --in-content-page-background: var(--ctp-base) !important;
+      --in-content-page-color: var(--ctp-text) !important;
+      --in-content-text-color: var(--ctp-text) !important;
+      --in-content-deemphasized-text: var(--ctp-subtext0) !important;
+      --in-content-box-background: var(--ctp-mantle) !important;
+      --in-content-box-border-color: var(--ctp-surface0) !important;
+      --in-content-border-color: var(--ctp-surface0) !important;
+      --in-content-item-hover: var(--ctp-surface0) !important;
+      --in-content-item-selected: var(--ctp-accent) !important;
+      --in-content-item-selected-text: var(--ctp-on-accent) !important;
+      --in-content-table-background: var(--ctp-mantle) !important;
+      --in-content-table-header-background: var(--ctp-accent) !important;
+      --in-content-table-header-color: var(--ctp-on-accent) !important;
     }
 
-    .icon {
-      color: #89dceb !important;
+    ::selection {
+      background-color: var(--ctp-accent) !important;
+      color: var(--ctp-on-accent) !important;
+    }
+  }
+
+  /* New tab / home */
+  @-moz-document url("about:newtab"), url("about:home"), url("about:privatebrowsing") {
+    :root {
+      --newtab-background-color: var(--ctp-base) !important;
+      --newtab-background-color-secondary: var(--ctp-surface0) !important;
+      --newtab-background-card: var(--ctp-mantle) !important;
+      --newtab-layout-panel-background: var(--ctp-mantle) !important;
+      --newtab-weather-background-color: var(--ctp-mantle) !important;
+      --newtab-text-primary-color: var(--ctp-text) !important;
+      --newtab-text-secondary-color: var(--ctp-subtext0) !important;
+      --newtab-contextual-text-primary-color: var(--ctp-text) !important;
+      --newtab-contextual-text-secondary-color: var(--ctp-subtext0) !important;
+      --newtab-wordmark-color: var(--ctp-text) !important;
+      --newtab-element-hover-color: var(--ctp-surface0) !important;
+      --newtab-element-active-color: var(--ctp-surface1) !important;
+      --newtab-element-secondary-color: var(--ctp-surface0) !important;
+      --newtab-element-secondary-hover-color: var(--ctp-surface1) !important;
+      --newtab-element-secondary-active-color: var(--ctp-surface2) !important;
+      --newtab-button-background: var(--ctp-surface0) !important;
+      --newtab-button-hover-background: var(--ctp-surface1) !important;
+      --newtab-button-active-background: var(--ctp-surface2) !important;
+      --newtab-button-text: var(--ctp-text) !important;
+      --newtab-primary-action-background: var(--ctp-accent) !important;
+      --newtab-primary-element-hover-color: var(--ctp-accent-hover) !important;
+      --newtab-primary-element-active-color: var(--ctp-accent-active) !important;
+      --newtab-primary-element-text-color: var(--ctp-on-accent) !important;
+      --newtab-card-placeholder-background-color: var(--ctp-surface0) !important;
+      --newtab-overlay-color: color-mix(in srgb, var(--ctp-crust) 70%, transparent) !important;
+      --newtab-status-success: var(--ctp-green) !important;
+      --newtab-status-error: var(--ctp-red) !important;
+    }
+
+    body {
+      background-color: var(--ctp-base) !important;
     }
 
     .search-wrapper .logo-and-wordmark .logo {
-      background: url("zen-logo-mocha.svg"), url("https://raw.githubusercontent.com/IAmJafeth/zen-browser/main/themes/Mocha/Sky/zen-logo-mocha.svg") no-repeat center !important;
+      background: url("zen-logo-mocha.svg"), url("https://raw.githubusercontent.com/catppuccin/zen-browser/main/themes/Mocha/Sky/zen-logo-mocha.svg") no-repeat center !important;
       display: inline-block !important;
       height: 82px !important;
       width: 82px !important;
@@ -48,111 +211,86 @@
     }
 
     .card-outer:is(:hover, :focus, .active):not(.placeholder) .card-title {
-      color: #89dceb !important;
+      color: var(--ctp-accent) !important;
     }
 
     .top-site-outer .search-topsite {
-      background-color: #89b4fa !important;
+      background-color: var(--ctp-blue) !important;
     }
 
     .compact-cards .card-outer .card-context .card-context-icon.icon-download {
-      fill: #a6e3a1 !important;
+      fill: var(--ctp-green) !important;
     }
   }
 
-  /* Variables and styles specific to about:preferences */
-  @-moz-document url-prefix("about:preferences") {
-    :root {
-      --zen-colors-tertiary: #181825 !important;
-      --in-content-text-color: #cdd6f4 !important;
-      --link-color: #89dceb !important;
-      --link-color-hover: rgb(159, 227, 239) !important;
-      --zen-colors-primary: #313244 !important;
-      --in-content-box-background: #313244 !important;
-      --zen-primary-color: #89dceb !important;
+  /* about:preferences */
+  @-moz-document url-prefix("about:preferences"), url-prefix("about:settings") {
+    .main-content,
+    #categories {
+      background-color: var(--ctp-base) !important;
     }
 
-    groupbox , moz-card{
-      background: #1e1e2e !important;
+    moz-card,
+    .card {
+      --card-background-color: var(--ctp-mantle) !important;
+      --card-border-color: var(--ctp-surface0) !important;
     }
 
-    button,
-    groupbox menulist {
-      background: #313244 !important;
-      color: #cdd6f4 !important;
-    }
+    /*
+     * Zen's own panes (Look and Feel, Tab Management, Keyboard Shortcuts) and Sine's Mods pane
+     * still use legacy XUL groupboxes, which Zen leaves unstyled. Draw them like Firefox's moz-card.
+     */
+    #mainPrefPane :is([data-category^="paneZen"], [data-category="paneSineMods"]) {
+      &.subcategory {
+        margin-block: var(--space-xlarge) var(--space-small) !important;
+        padding-inline: var(--space-xsmall) !important;
+      }
 
-    .main-content {
-      background-color: #11111b !important;
-    }
+      &.highlighting-group {
+        background-color: var(--ctp-mantle) !important;
+        border: var(--card-border-width, 1px) solid var(--ctp-surface0) !important;
+        border-radius: var(--card-border-radius, var(--border-radius-large)) !important;
+        box-shadow: var(--card-box-shadow) !important;
+        padding: var(--space-large) var(--space-xlarge) !important;
+        margin-block: 0 var(--space-large) !important;
+      }
 
-    .identity-color-blue {
-      --identity-tab-color: #8aadf4 !important;
-      --identity-icon-color: #8aadf4 !important;
-    }
+      /* Zen hardcodes grey (#363636) for these */
+      & :is(button, menulist):not(.primary) {
+        background-color: var(--ctp-surface0) !important;
+        color: var(--ctp-text) !important;
 
-    .identity-color-turquoise {
-      --identity-tab-color: #8bd5ca !important;
-      --identity-icon-color: #8bd5ca !important;
-    }
-
-    .identity-color-green {
-      --identity-tab-color: #a6da95 !important;
-      --identity-icon-color: #a6da95 !important;
-    }
-
-    .identity-color-yellow {
-      --identity-tab-color: #eed49f !important;
-      --identity-icon-color: #eed49f !important;
-    }
-
-    .identity-color-orange {
-      --identity-tab-color: #f5a97f !important;
-      --identity-icon-color: #f5a97f !important;
-    }
-
-    .identity-color-red {
-      --identity-tab-color: #ed8796 !important;
-      --identity-icon-color: #ed8796 !important;
-    }
-
-    .identity-color-pink {
-      --identity-tab-color: #f5bde6 !important;
-      --identity-icon-color: #f5bde6 !important;
-    }
-
-    .identity-color-purple {
-      --identity-tab-color: #c6a0f6 !important;
-      --identity-icon-color: #c6a0f6 !important;
+        &:hover {
+          background-color: var(--ctp-surface1) !important;
+        }
+      }
     }
   }
 
-  /* Variables and styles specific to about:addons */
+  /* about:addons */
   @-moz-document url-prefix("about:addons") {
     :root {
-      --zen-dark-color-mix-base: #181825 !important;
-      --background-color-box: #1e1e2e !important;
+      --zen-dark-color-mix-base: var(--ctp-mantle) !important;
+    }
+
+    addon-card .card,
+    .card {
+      background-color: var(--ctp-mantle) !important;
     }
   }
 
-  /* Variables and styles specific to about:protections */
+  /* about:protections */
   @-moz-document url-prefix("about:protections") {
     :root {
-      --zen-primary-color: #1e1e2e !important;
-      --social-color: #cba6f7 !important;
-      --coockie-color: #89dceb !important;
-      --fingerprinter-color: #f9e2af !important;
-      --cryptominer-color: #b4befe !important;
-      --tracker-color: #a6e3a1 !important;
-      --in-content-primary-button-background-hover: rgb(81, 83, 105) !important;
-      --in-content-primary-button-text-color-hover: #cdd6f4 !important;
-      --in-content-primary-button-background: #45475a !important;
-      --in-content-primary-button-text-color: #cdd6f4 !important;
+      --social-color: var(--ctp-mauve) !important;
+      --cookie-color: var(--ctp-sky) !important;
+      --fingerprinter-color: var(--ctp-yellow) !important;
+      --cryptominer-color: var(--ctp-lavender) !important;
+      --tracker-color: var(--ctp-green) !important;
     }
 
-
     .card {
-      background-color: #313244 !important;
+      background-color: var(--ctp-mantle) !important;
     }
   }
 }

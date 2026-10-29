@@ -1,130 +1,310 @@
-/* Catppuccin Latte Flamingo userChrome.css*/
+/* Catppuccin Latte Flamingo userChrome.css */
 
 @media (prefers-color-scheme: light) {
   :root {
-    --zen-colors-primary: #ccd0da !important;
-    --zen-primary-color: #dd7878 !important;
-    --zen-colors-secondary: #ccd0da !important;
-    --zen-colors-tertiary: #e6e9ef !important;
-    --zen-colors-border: #dd7878 !important;
-    --toolbarbutton-icon-fill: #dd7878 !important;
-    --lwt-text-color: #4c4f69 !important;
-    --toolbar-field-color: #4c4f69 !important;
-    --tab-selected-textcolor: rgb(149, 99, 112) !important;
-    --toolbar-field-focus-color: #4c4f69 !important;
-    --toolbar-color: #4c4f69 !important;
-    --newtab-text-primary-color: #4c4f69 !important;
-    --arrowpanel-color: #4c4f69 !important;
-    --arrowpanel-background: #eff1f5 !important;
-    --sidebar-text-color: #4c4f69 !important;
-    --lwt-sidebar-text-color: #4c4f69 !important;
-    --lwt-sidebar-background-color: #dce0e8 !important;
-    --toolbar-bgcolor: #ccd0da !important;
-    --newtab-background-color: #eff1f5 !important;
-    --zen-themed-toolbar-bg: #e6e9ef !important;
-    --zen-main-browser-background: #e6e9ef !important;
-    --toolbox-bgcolor-inactive: #e6e9ef !important;
+    --ctp-scheme: light;
+    --ctp-rosewater: #dc8a78;
+    --ctp-flamingo: #dd7878;
+    --ctp-pink: #ea76cb;
+    --ctp-mauve: #8839ef;
+    --ctp-red: #d20f39;
+    --ctp-maroon: #e64553;
+    --ctp-peach: #fe640b;
+    --ctp-yellow: #df8e1d;
+    --ctp-green: #40a02b;
+    --ctp-teal: #179299;
+    --ctp-sky: #04a5e5;
+    --ctp-sapphire: #209fb5;
+    --ctp-blue: #1e66f5;
+    --ctp-lavender: #7287fd;
+    --ctp-text: #4c4f69;
+    --ctp-subtext1: #5c5f77;
+    --ctp-subtext0: #6c6f85;
+    --ctp-overlay2: #7c7f93;
+    --ctp-overlay1: #8c8fa1;
+    --ctp-overlay0: #9ca0b0;
+    --ctp-surface2: #acb0be;
+    --ctp-surface1: #bcc0cc;
+    --ctp-surface0: #ccd0da;
+    --ctp-base: #eff1f5;
+    --ctp-mantle: #e6e9ef;
+    --ctp-crust: #dce0e8;
+    --ctp-accent: #dd7878;
+    --ctp-accent-hover: color-mix(in srgb, var(--ctp-accent) 85%, var(--ctp-text));
+    --ctp-accent-active: color-mix(in srgb, var(--ctp-accent) 70%, var(--ctp-text));
+    /* Text drawn on top of an accent-colored fill */
+    --ctp-on-accent: var(--ctp-crust);
   }
 
-  #permissions-granted-icon {
-    color: #e6e9ef !important;
+  /*
+   * Shared Zen + Firefox design tokens. Keep in sync with userContent.tera: Zen loads
+   * zen-theme.css in both the browser chrome and every about: page, so both need them.
+   * User-sheet !important beats Zen's own !important and its inline style.setProperty() values.
+   */
+  :root {
+    color-scheme: var(--ctp-scheme) !important;
+
+    /* Zen core */
+    --zen-primary-color: var(--ctp-accent) !important;
+    --zen-branding-dark: var(--ctp-crust) !important;
+    --zen-branding-paper: var(--ctp-base) !important;
+    --zen-branding-bg: var(--ctp-base) !important;
+    --zen-branding-bg-reverse: var(--ctp-text) !important;
+    --zen-colors-primary: var(--ctp-surface0) !important;
+    --zen-colors-secondary: var(--ctp-surface1) !important;
+    --zen-colors-tertiary: var(--ctp-mantle) !important;
+    --zen-colors-hover-bg: var(--ctp-surface1) !important;
+    --zen-colors-primary-foreground: var(--ctp-text) !important;
+    --zen-colors-border: var(--ctp-surface0) !important;
+    --zen-colors-border-contrast: color-mix(in srgb, var(--ctp-surface1) 50%, transparent) !important;
+    --zen-colors-input-bg: var(--ctp-surface0) !important;
+    --zen-input-border-color: var(--ctp-surface1) !important;
+    --zen-dialog-background: var(--ctp-base) !important;
+    --zen-in-content-dialog-background: var(--ctp-base) !important;
+    --zen-urlbar-background: var(--ctp-surface0) !important;
+    --zen-secondary-btn-color: var(--ctp-text) !important;
+
+    /* Buttons (Zen remaps Firefox's button tokens onto these) */
+    --in-content-primary-button-background: var(--ctp-accent) !important;
+    --in-content-primary-button-background-hover: var(--ctp-accent-hover) !important;
+    --in-content-primary-button-background-active: var(--ctp-accent-active) !important;
+    --in-content-primary-button-text-color: var(--ctp-on-accent) !important;
+    --in-content-accent-color: var(--ctp-accent) !important;
+    --button-text-color: var(--ctp-text) !important;
+    --button-text-color-primary: var(--ctp-on-accent) !important;
+    --button-background-color-destructive: var(--ctp-red) !important;
+    --button-background-color-destructive-hover: color-mix(in srgb, var(--ctp-red) 85%, var(--ctp-text)) !important;
+    --button-background-color-destructive-active: color-mix(in srgb, var(--ctp-red) 70%, var(--ctp-text)) !important;
+    --button-text-color-destructive: var(--ctp-on-accent) !important;
+
+    /* Firefox design-system tokens */
+    --color-accent-primary: var(--ctp-accent) !important;
+    --color-accent-primary-hover: var(--ctp-accent-hover) !important;
+    --color-accent-primary-active: var(--ctp-accent-active) !important;
+    --text-color-accent-primary-selected: var(--ctp-on-accent) !important;
+    --focus-outline-color: var(--ctp-accent) !important;
+    --link-color: var(--ctp-accent) !important;
+    --link-color-hover: var(--ctp-accent-hover) !important;
+    --link-color-active: var(--ctp-accent-active) !important;
+    --link-color-visited: var(--ctp-accent) !important;
+    --text-color: var(--ctp-text) !important;
+    --icon-color: var(--ctp-subtext1) !important;
+    --background-color-canvas: var(--ctp-base) !important;
+    --background-color-box: var(--ctp-mantle) !important;
+    --background-color-box-info: var(--ctp-surface0) !important;
+    --background-color-list-item-hover: color-mix(in srgb, var(--ctp-accent) 20%, transparent) !important;
+    --border-color: var(--ctp-surface1) !important;
+    --border-color-interactive: var(--ctp-surface2) !important;
+    --border-color-deemphasized: var(--ctp-surface0) !important;
+    --input-border-color: var(--ctp-surface1) !important;
+    --table-row-background-color-alternate: var(--ctp-mantle) !important;
+    --text-color-error: var(--ctp-red) !important;
+    --border-color-error: var(--ctp-red) !important;
+    --icon-color-critical: var(--ctp-red) !important;
+    --icon-color-warning: var(--ctp-yellow) !important;
+    --icon-color-success: var(--ctp-green) !important;
+    --icon-color-information: var(--ctp-blue) !important;
+    --background-color-critical: color-mix(in srgb, var(--ctp-red) 18%, var(--ctp-base)) !important;
+    --background-color-warning: color-mix(in srgb, var(--ctp-yellow) 18%, var(--ctp-base)) !important;
+    --background-color-success: color-mix(in srgb, var(--ctp-green) 18%, var(--ctp-base)) !important;
+    --background-color-information: color-mix(in srgb, var(--ctp-blue) 18%, var(--ctp-base)) !important;
+
+    /* Panels, popups, menus */
+    --arrowpanel-background: var(--ctp-base) !important;
+    --arrowpanel-color: var(--ctp-text) !important;
+    --arrowpanel-border-color: var(--ctp-surface0) !important;
+    --panel-background-color: var(--ctp-base) !important;
+    --panel-text-color: var(--ctp-text) !important;
+    --panel-border-color: var(--ctp-surface0) !important;
+    --panel-separator-color: var(--ctp-surface0) !important;
+    --popup-background-color: var(--ctp-base) !important;
+    --popup-border-color: var(--ctp-surface0) !important;
   }
 
-  .sidebar-placesTree {
-    background-color: #eff1f5 !important;
+  /* Container (identity) colors */
+  .identity-color-blue { --identity-tab-color: var(--ctp-blue) !important; --identity-icon-color: var(--ctp-blue) !important; }
+  .identity-color-turquoise { --identity-tab-color: var(--ctp-teal) !important; --identity-icon-color: var(--ctp-teal) !important; }
+  .identity-color-green { --identity-tab-color: var(--ctp-green) !important; --identity-icon-color: var(--ctp-green) !important; }
+  .identity-color-yellow { --identity-tab-color: var(--ctp-yellow) !important; --identity-icon-color: var(--ctp-yellow) !important; }
+  .identity-color-orange { --identity-tab-color: var(--ctp-peach) !important; --identity-icon-color: var(--ctp-peach) !important; }
+  .identity-color-red { --identity-tab-color: var(--ctp-red) !important; --identity-icon-color: var(--ctp-red) !important; }
+  .identity-color-pink { --identity-tab-color: var(--ctp-pink) !important; --identity-icon-color: var(--ctp-pink) !important; }
+  .identity-color-purple { --identity-tab-color: var(--ctp-mauve) !important; --identity-icon-color: var(--ctp-mauve) !important; }
+
+  /* --- Browser chrome --- */
+
+  :root {
+    /* Window / sidebar background */
+    --zen-main-browser-background: var(--ctp-mantle) !important;
+    --zen-main-browser-background-toolbar: var(--ctp-mantle) !important;
+    --zen-themed-toolbar-bg-transparent: var(--ctp-mantle) !important;
+    --zen-appcontent-border: 1px solid var(--ctp-surface0) !important;
+
+    /* Toolbar text. Zen sets --toolbox-textcolor inline from the space gradient; this wins. */
+    --toolbox-textcolor: var(--ctp-text) !important;
+    --toolbox-textcolor-inactive: var(--ctp-subtext0) !important;
+    --toolbar-color: var(--ctp-text) !important;
+    --toolbar-color-scheme: var(--ctp-scheme) !important;
+    --toolbar-bgcolor: var(--ctp-mantle) !important;
+    --lwt-text-color: var(--ctp-text) !important;
+    --sidebar-text-color: var(--ctp-text) !important;
+    --sidebar-background-color: var(--ctp-mantle) !important;
+
+    /* Toolbar buttons */
+    --toolbarbutton-icon-fill: var(--ctp-text) !important;
+    --toolbarbutton-icon-fill-attention: var(--ctp-accent) !important;
+    --toolbarbutton-background-color-hover: color-mix(in srgb, var(--ctp-surface1) 60%, transparent) !important;
+    --toolbarbutton-background-color-active: var(--ctp-surface1) !important;
+    --zen-toolbar-element-bg: color-mix(in srgb, var(--ctp-surface0) 70%, transparent) !important;
+    --zen-toolbar-element-bg-hover: color-mix(in srgb, var(--ctp-surface1) 60%, transparent) !important;
+
+    /* URL bar */
+    --toolbar-field-color: var(--ctp-text) !important;
+    --toolbar-field-focus-color: var(--ctp-text) !important;
+    --toolbar-field-background-color: var(--ctp-surface0) !important;
+    --toolbar-field-focus-background-color: var(--ctp-surface0) !important;
+    --toolbar-field-border-color: transparent !important;
+    --urlbar-box-bgcolor: var(--ctp-surface0) !important;
+    --urlbar-box-hover-bgcolor: var(--ctp-surface1) !important;
+    --urlbar-box-active-bgcolor: var(--ctp-surface1) !important;
+    --urlbar-box-text-color: var(--ctp-text) !important;
+    --urlbarView-highlight-background: var(--ctp-surface0) !important;
+    --urlbarView-highlight-color: var(--ctp-text) !important;
+    --urlbarView-separator-color: var(--ctp-surface0) !important;
+    --urlbarView-action-color: var(--ctp-subtext0) !important;
+
+    /* Tabs */
+    --tab-background-color-hover: color-mix(in srgb, var(--ctp-surface0) 70%, transparent) !important;
+    --tab-selected-textcolor: var(--ctp-text) !important;
+    --zen-pinned-separator-color: var(--ctp-surface1) !important;
+
+    /* Sidebar notifications, Zen-themed icons */
+    --zen-sidebar-notification-bg: var(--ctp-base) !important;
+    --zen-sidebar-themed-icon-fill: var(--ctp-subtext1) !important;
+
+    /* Attention dot on pinned tabs/buttons */
+    --attention-dot-color: var(--ctp-accent) !important;
   }
 
-  #zen-workspaces-button {
-    background-color: #eff1f5 !important;
+  /* Private windows: one step darker so they're still distinguishable */
+  :root[zen-private-window="true"] {
+    --zen-main-browser-background: var(--ctp-crust) !important;
+    --zen-main-browser-background-toolbar: var(--ctp-crust) !important;
   }
 
-  #TabsToolbar {
-    background-color: #e6e9ef !important;
+  /*
+   * Space (workspace) gradients. Zen writes the gradient inline onto these two elements, so
+   * the override has to target them directly. Delete this block to keep per-space gradients.
+   */
+  #zen-browser-background,
+  #zen-toolbar-background {
+    --zen-main-browser-background: var(--ctp-mantle) !important;
+    --zen-main-browser-background-toolbar: var(--ctp-mantle) !important;
+    --zen-main-browser-background-old: var(--ctp-mantle) !important;
+    --zen-main-browser-background-toolbar-old: var(--ctp-mantle) !important;
+
+    :root[zen-private-window="true"] & {
+      --zen-main-browser-background: var(--ctp-crust) !important;
+      --zen-main-browser-background-toolbar: var(--ctp-crust) !important;
+      --zen-main-browser-background-old: var(--ctp-crust) !important;
+      --zen-main-browser-background-toolbar-old: var(--ctp-crust) !important;
+    }
   }
 
-  .urlbar-background {
-    background-color: #eff1f5 !important;
+  /* A space gradient can flip #browser to light/dark; keep the scheme matching the flavor */
+  #main-window #browser,
+  #main-window panel,
+  #main-window menupopup {
+    color-scheme: var(--ctp-scheme) !important;
   }
 
-  .content-shortcuts {
-    background-color: #eff1f5 !important;
-    border-color: #dd7878 !important;
+  /* --- Tabs --- */
+
+  zen-workspace,
+  .tabbrowser-tab {
+    --tab-background-color-selected: var(--ctp-surface0) !important;
   }
 
-  .urlbarView-url {
-    color: #dd7878 !important;
+  .tabbrowser-tab[zen-essential="true"] .tab-background {
+    --zen-essential-tab-selected-bg: var(--ctp-surface0) !important;
+    --zen-essential-tab-selected-bg-hover: var(--ctp-surface1) !important;
+  }
+
+  .tabbrowser-tab:is([visuallyselected], [multiselected]) .tab-label {
+    color: var(--ctp-text) !important;
+  }
+
+  /* Audio / mute indicators */
+  .tab-icon-overlay:is([soundplaying], [muted], [activemedia-blocked]) {
+    color: var(--ctp-accent) !important;
+  }
+
+  /* --- URL bar --- */
+
+  #urlbar .urlbar-background {
+    --zen-urlbar-background-base: var(--ctp-base) !important;
+    --zen-urlbar-background-transparent: var(--ctp-base) !important;
+    outline-color: var(--ctp-surface1) !important;
+  }
+
+  #urlbar:not([breakout-extend]) .urlbar-background {
+    --zen-urlbar-background-base: var(--ctp-surface0) !important;
+    --zen-urlbar-background-transparent: var(--ctp-surface0) !important;
+    outline-color: transparent !important;
+  }
+
+  #urlbar-input::selection,
+  .searchbar-textbox::selection {
+    background-color: var(--ctp-accent) !important;
+    color: var(--ctp-on-accent) !important;
+  }
+
+  .urlbarView-url,
+  .urlbarView-row[type="switchtab"] .urlbarView-action {
+    color: var(--ctp-accent) !important;
+  }
+
+  .urlbarView-row[selected] {
+    .urlbarView-title,
+    .urlbarView-url,
+    .urlbarView-action {
+      color: var(--ctp-text) !important;
+    }
+  }
+
+  /* --- Menus & panels --- */
+
+  menupopup,
+  panel {
+    --panel-background: var(--ctp-base) !important;
+    --panel-color: var(--ctp-text) !important;
+    --panel-border-color: var(--ctp-surface0) !important;
+    --panel-item-hover-bgcolor: var(--ctp-surface0) !important;
+    --panel-item-active-bgcolor: var(--ctp-surface1) !important;
+  }
+
+  menupopup > menuitem[_moz-menuactive],
+  menupopup > menu[_moz-menuactive] {
+    background-color: var(--ctp-surface0) !important;
+    color: var(--ctp-text) !important;
+  }
+
+  /* --- Misc --- */
+
+  #zen-toast-container .zen-toast {
+    background: var(--ctp-surface0) !important;
+    color: var(--ctp-text) !important;
+  }
+
+  #zen-media-controls-toolbar #zen-media-progress-bar::-moz-range-track {
+    background: var(--ctp-surface1) !important;
+  }
+
+  #zen-media-controls-toolbar #zen-media-progress-bar::-moz-range-progress {
+    background: var(--ctp-accent) !important;
   }
 
   #zenEditBookmarkPanelFaviconContainer {
-    background: #dce0e8 !important;
-  }
-
-  #zen-media-controls-toolbar {
-    & #zen-media-progress-bar {
-      &::-moz-range-track {
-        background: #ccd0da !important;
-      }
-    }
-  }
-
-  toolbar .toolbarbutton-1 {
-    &:not([disabled]) {
-      &:is([open], [checked])
-        > :is(
-          .toolbarbutton-icon,
-          .toolbarbutton-text,
-          .toolbarbutton-badge-stack
-        ) {
-        fill: #dce0e8;
-      }
-    }
-  }
-
-  .identity-color-blue {
-    --identity-tab-color: #1e66f5 !important;
-    --identity-icon-color: #1e66f5 !important;
-  }
-
-  .identity-color-turquoise {
-    --identity-tab-color: #179299 !important;
-    --identity-icon-color: #179299 !important;
-  }
-
-  .identity-color-green {
-    --identity-tab-color: #40a02b !important;
-    --identity-icon-color: #40a02b !important;
-  }
-
-  .identity-color-yellow {
-    --identity-tab-color: #df8e1d !important;
-    --identity-icon-color: #df8e1d !important;
-  }
-
-  .identity-color-orange {
-    --identity-tab-color: #fe640b !important;
-    --identity-icon-color: #fe640b !important;
-  }
-
-  .identity-color-red {
-    --identity-tab-color: #d20f39 !important;
-    --identity-icon-color: #d20f39 !important;
-  }
-
-  .identity-color-pink {
-    --identity-tab-color: #ea76cb !important;
-    --identity-icon-color: #ea76cb !important;
-  }
-
-  .identity-color-purple {
-    --identity-tab-color: #8839ef !important;
-    --identity-icon-color: #8839ef !important;
-  }
-
-  hbox#titlebar {
-    background-color: #e6e9ef !important;
-  }
-
-  #zen-appcontent-navbar-container {
-    background-color: #e6e9ef !important;
+    background: var(--ctp-crust) !important;
   }
 }
