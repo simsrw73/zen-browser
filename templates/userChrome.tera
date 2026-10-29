@@ -29,6 +29,8 @@ whiskers:
     --ctp-accent-active: color-mix(in srgb, var(--ctp-accent) 70%, var(--ctp-text));
     /* Text drawn on top of an accent-colored fill */
     --ctp-on-accent: var(--ctp-crust);
+    /* Toolbar and sidebar icons */
+    --ctp-icon-fill: var(--ctp-accent);
   }
 
   /*
@@ -146,7 +148,7 @@ whiskers:
     --sidebar-background-color: var(--ctp-mantle) !important;
 
     /* Toolbar buttons */
-    --toolbarbutton-icon-fill: var(--ctp-text) !important;
+    --toolbarbutton-icon-fill: var(--ctp-icon-fill) !important;
     --toolbarbutton-icon-fill-attention: var(--ctp-accent) !important;
     --toolbarbutton-background-color-hover: color-mix(in srgb, var(--ctp-surface1) 60%, transparent) !important;
     --toolbarbutton-background-color-active: var(--ctp-surface1) !important;
@@ -218,6 +220,13 @@ whiskers:
   #main-window panel,
   #main-window menupopup {
     color-scheme: var(--ctp-scheme) !important;
+  }
+
+  /* --- Icons --- */
+
+  /* Zen redefines --toolbarbutton-icon-fill on some elements, so also set the fill directly */
+  :is(toolbar, #zen-sidebar-top-buttons, #zen-sidebar-foot-buttons) toolbarbutton:not([disabled]) > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+    fill: var(--ctp-icon-fill) !important;
   }
 
   /* --- Tabs --- */

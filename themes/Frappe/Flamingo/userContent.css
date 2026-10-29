@@ -1,10 +1,7 @@
 /* Catppuccin Frappe Flamingo userContent.css */
 
-/*
- * Follow Zen's own color scheme setting (zen.view.window.scheme: 0 dark, 1 light, 2 system).
- * In the browser chrome, prefers-color-scheme follows the OS instead of that setting.
- */
-@media -moz-pref("zen.view.window.scheme", 0), (-moz-pref("zen.view.window.scheme", 2)) and (prefers-color-scheme: dark) {
+/* about: pages follow Zen's Website Appearance setting, which drives prefers-color-scheme here */
+@media (prefers-color-scheme: dark) {
 
   /* Scoped to about: pages so websites never see these variables */
   @-moz-document url-prefix("about:") {
