@@ -1,0 +1,10 @@
+{
+  "id": "catppuccin-zen-browser-macchiato-sky",
+  "name": "Catppuccin Macchiato Sky",
+  "description": "Soothing pastel theme for Zen Browser: Macchiato flavor, Sky accent. Use with Zen set to dark mode.",
+  "author": "catppuccin",
+  "homepage": "https://github.com/catppuccin/zen-browser/tree/main/themes/Macchiato/Sky",
+  "readme": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/README.md",
+  "image": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/assets/macchiato.webp",
+  "tags": ["catppuccin", "theme", "macchiato"]
+}

@@ -15,4 +15,5 @@ jobs:
         templates/userChrome.tera
         templates/userContent.tera
         templates/zen-logo.tera
+        templates/theme.tera
     secrets: inherit

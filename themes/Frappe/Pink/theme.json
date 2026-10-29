@@ -1,0 +1,10 @@
+{
+  "id": "catppuccin-zen-browser-frappe-pink",
+  "name": "Catppuccin Frappé Pink",
+  "description": "Soothing pastel theme for Zen Browser: Frappé flavor, Pink accent. Use with Zen set to dark mode.",
+  "author": "catppuccin",
+  "homepage": "https://github.com/catppuccin/zen-browser/tree/main/themes/Frappe/Pink",
+  "readme": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/README.md",
+  "image": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/assets/frappe.webp",
+  "tags": ["catppuccin", "theme", "frappe"]
+}

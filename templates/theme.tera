@@ -1,0 +1,18 @@
+---
+whiskers:
+  version: ^2.5.1
+  matrix:
+    - accent
+    - flavor
+  filename: "themes/{{ flavor.identifier | capitalize}}/{{ accent | capitalize }}/theme.json"
+---
+{
+  "id": "catppuccin-zen-browser-{{ flavor.identifier }}-{{ accent }}",
+  "name": "Catppuccin {{ flavor.name }} {{ accent | capitalize }}",
+  "description": "Soothing pastel theme for Zen Browser: {{ flavor.name }} flavor, {{ accent | capitalize }} accent.{% if flavor.dark %} Use with Zen set to dark mode.{% else %} Use with Zen set to light mode.{% endif %}",
+  "author": "catppuccin",
+  "homepage": "https://github.com/catppuccin/zen-browser/tree/main/themes/{{ flavor.identifier | capitalize}}/{{ accent | capitalize }}",
+  "readme": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/README.md",
+  "image": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/assets/{{ flavor.identifier }}.webp",
+  "tags": ["catppuccin", "theme", "{{ flavor.identifier }}"]
+}

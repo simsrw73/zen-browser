@@ -1,0 +1,10 @@
+{
+  "id": "catppuccin-zen-browser-mocha-rosewater",
+  "name": "Catppuccin Mocha Rosewater",
+  "description": "Soothing pastel theme for Zen Browser: Mocha flavor, Rosewater accent. Use with Zen set to dark mode.",
+  "author": "catppuccin",
+  "homepage": "https://github.com/catppuccin/zen-browser/tree/main/themes/Mocha/Rosewater",
+  "readme": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/README.md",
+  "image": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/assets/mocha.webp",
+  "tags": ["catppuccin", "theme", "mocha"]
+}

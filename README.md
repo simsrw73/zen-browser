@@ -53,6 +53,19 @@
   
   **A:** Yes! You can concatenate the `userChrome.css` and `userContent.css` files for 🌻 Latte (light mode) along with one of the dark mode themes like 🪴 Frappé, 🌺 Macchiato, or 🌿 Mocha. The browser will automatically switch between these themes when toggling between light and dark mode.
 
+## 🧩 Installing with Sine
+
+If you use the [Sine](https://github.com/CosmoCreeper/Sine) mod manager, you can install a theme without copying files:
+
+1. Open Zen's settings and go to **Sine Mods**.
+2. Paste the link to your preferred theme's folder into the install box and select **Install**. Use this format, replacing the flavor and accent:
+
+   ```
+   https://github.com/catppuccin/zen-browser/tree/main/themes/Mocha/Mauve
+   ```
+
+Sine keeps the theme updated as this repository changes. Set Zen's color scheme to match the flavor, as described in the note above.
+
 ## 💝 Thanks to
 
 - [IAmJafeth](https://github.com/IAmJafeth)

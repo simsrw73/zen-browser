@@ -1,0 +1,10 @@
+{
+  "id": "catppuccin-zen-browser-latte-peach",
+  "name": "Catppuccin Latte Peach",
+  "description": "Soothing pastel theme for Zen Browser: Latte flavor, Peach accent. Use with Zen set to light mode.",
+  "author": "catppuccin",
+  "homepage": "https://github.com/catppuccin/zen-browser/tree/main/themes/Latte/Peach",
+  "readme": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/README.md",
+  "image": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/assets/latte.webp",
+  "tags": ["catppuccin", "theme", "latte"]
+}
