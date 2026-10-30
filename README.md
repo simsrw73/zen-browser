@@ -64,6 +64,23 @@ Set both to match your flavor, or set both to follow your system: **Auto** for b
   
   **A:** Yes! You can concatenate the `userChrome.css` and `userContent.css` files for 🌻 Latte (light mode) along with one of the dark mode themes like 🪴 Frappé, 🌺 Macchiato, or 🌿 Mocha. The theme then switches flavors with Zen's light and dark settings, described in [Light and dark mode](#-light-and-dark-mode).
 
+## 🧩 Installing with Sine
+
+If you use the [Sine](https://github.com/CosmoCreeper/Sine) mod manager, you can install the theme without copying files. Sine keeps it updated as this repository changes.
+
+1. Open Zen's settings and go to **Sine Mods**.
+2. Paste this link into the install box and select **Install**:
+
+   ```
+   https://github.com/catppuccin/zen-browser/tree/main/sine
+   ```
+
+3. Open the mod's options to choose:
+   - **Dark mode flavor:** 🪴 Frappé, 🌺 Macchiato, or 🌿 Mocha (default). 🌻 Latte is used automatically in light mode. See [Light and dark mode](#-light-and-dark-mode) for the two Zen settings that control it.
+   - **Accent color:** any of the 14 accents (default Mauve).
+   - **Keep space gradients:** keeps Zen's per-space gradient backgrounds instead of the flavor's. While it's off, changes in Zen's **Edit Theme** dialog have no visible effect.
+   - **Plain icons:** uses the text color for toolbar and sidebar icons instead of the accent.
+
 ## 💝 Thanks to
 
 - [IAmJafeth](https://github.com/IAmJafeth)

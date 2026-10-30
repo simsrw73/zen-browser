@@ -1,0 +1,49 @@
+---
+whiskers:
+  version: ^2.5.1
+  matrix:
+    - target: ["sine"]
+  filename: "sine/preferences.json"
+---
+[
+  {
+    "type": "separator",
+    "label": "Latte is used when Zen is in light mode. The flavor below applies in dark mode."
+  },
+  {
+    "type": "dropdown",
+    "property": "catppuccin.zen.dark-flavor",
+    "label": "Dark mode flavor",
+    "defaultValue": "mocha",
+    "options": [
+{%- for id, f in flavors %}{% if f.dark %}
+      { "label": "{{ f.name }}", "value": "{{ id }}" }{% if not loop.last %},{% endif %}
+{%- endif %}{% endfor %}
+    ]
+  },
+  {
+    "type": "dropdown",
+    "property": "catppuccin.zen.accent",
+    "label": "Accent color",
+    "defaultValue": "mauve",
+    "options": [
+{%- set accents = [] %}
+{%- for name, c in flavors.mocha.colors %}{% if c.accent %}{% set_global accents = accents | concat(with=name) %}{% endif %}{% endfor %}
+{%- for name in accents %}
+      { "label": "{{ flavors.mocha.colors[name].name }}", "value": "{{ name }}" }{% if not loop.last %},{% endif %}
+{%- endfor %}
+    ]
+  },
+  {
+    "type": "checkbox",
+    "property": "catppuccin.zen.keep-space-gradients",
+    "label": "Keep Zen's space gradients instead of the flavor background. When off, Zen's Edit Theme dialog has no visible effect.",
+    "defaultValue": false
+  },
+  {
+    "type": "checkbox",
+    "property": "catppuccin.zen.plain-icons",
+    "label": "Use the text color for toolbar and sidebar icons instead of the accent",
+    "defaultValue": false
+  }
+]

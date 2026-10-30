@@ -1,0 +1,13 @@
+{
+  "id": "catppuccin-zen-browser",
+  "name": "Catppuccin",
+  "description": "Soothing pastel theme for Zen Browser. Choose the flavor and accent in the mod's options. Latte is used in light mode.",
+  "author": "catppuccin",
+  "homepage": "https://github.com/catppuccin/zen-browser/tree/main/sine",
+  "readme": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/README.md",
+  "image": "https://raw.githubusercontent.com/catppuccin/zen-browser/main/assets/preview.webp",
+  "tags": [
+    "catppuccin",
+    "theme"
+  ]
+}
