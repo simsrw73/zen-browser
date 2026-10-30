@@ -360,6 +360,18 @@
   }
 }
 
+/*
+ * Zen gives every element squircle corners, but its rule can't reach inside web components, so
+ * moz-card's accordion header keeps round corners at the card's radius and hovers as a pill.
+ */
+@-moz-document url-prefix("about:") {
+  @media -moz-pref("layout.css.corner-shape.enabled") {
+    moz-card::part(summary) {
+      corner-shape: superellipse(var(--zen-squircle-value));
+    }
+  }
+}
+
 /* about:preferences */
 @-moz-document url-prefix("about:preferences"), url-prefix("about:settings") {
   .main-content,

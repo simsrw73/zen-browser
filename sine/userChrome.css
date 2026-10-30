@@ -303,10 +303,12 @@
 /* --- Browser chrome --- */
 
 :root {
-  /* Window / sidebar background */
-  --zen-main-browser-background: var(--ctp-mantle) !important;
-  --zen-main-browser-background-toolbar: var(--ctp-mantle) !important;
-  --zen-themed-toolbar-bg-transparent: var(--ctp-mantle) !important;
+  /* Window / sidebar background. Crust, like the title, tab and status bars in Catppuccin for Zed. */
+  --ctp-frame: var(--ctp-crust);
+  --ctp-sidebar: var(--ctp-mantle);
+  --zen-main-browser-background: var(--ctp-frame) !important;
+  --zen-main-browser-background-toolbar: var(--ctp-frame) !important;
+  --zen-themed-toolbar-bg-transparent: var(--ctp-frame) !important;
   --zen-appcontent-border: 1px solid var(--ctp-surface0) !important;
 
   /* Toolbar text. Zen sets --toolbox-textcolor inline from the space gradient; this wins. */
@@ -314,10 +316,10 @@
   --toolbox-textcolor-inactive: var(--ctp-subtext0) !important;
   --toolbar-color: var(--ctp-text) !important;
   --toolbar-color-scheme: var(--ctp-scheme) !important;
-  --toolbar-bgcolor: var(--ctp-mantle) !important;
+  --toolbar-bgcolor: var(--ctp-frame) !important;
   --lwt-text-color: var(--ctp-text) !important;
   --sidebar-text-color: var(--ctp-text) !important;
-  --sidebar-background-color: var(--ctp-mantle) !important;
+  --sidebar-background-color: var(--ctp-frame) !important;
 
   /* Toolbar buttons */
   --toolbarbutton-icon-fill: var(--ctp-icon-fill) !important;
@@ -355,10 +357,10 @@
   --attention-dot-color: var(--ctp-accent) !important;
 }
 
-/* Private windows: one step darker so they're still distinguishable */
+/* Private windows: crust tinted with the accent, so they're still distinguishable */
 :root[zen-private-window="true"] {
-  --zen-main-browser-background: var(--ctp-crust) !important;
-  --zen-main-browser-background-toolbar: var(--ctp-crust) !important;
+  --ctp-frame: color-mix(in srgb, var(--ctp-accent) 8%, var(--ctp-crust));
+  --ctp-sidebar: color-mix(in srgb, var(--ctp-accent) 8%, var(--ctp-mantle));
 }
 
 @media not (-moz-pref("catppuccin.zen.keep-space-gradients")) {
@@ -368,17 +370,10 @@
    */
   #zen-browser-background,
   #zen-toolbar-background {
-    --zen-main-browser-background: var(--ctp-mantle) !important;
-    --zen-main-browser-background-toolbar: var(--ctp-mantle) !important;
-    --zen-main-browser-background-old: var(--ctp-mantle) !important;
-    --zen-main-browser-background-toolbar-old: var(--ctp-mantle) !important;
-
-    :root[zen-private-window="true"] & {
-      --zen-main-browser-background: var(--ctp-crust) !important;
-      --zen-main-browser-background-toolbar: var(--ctp-crust) !important;
-      --zen-main-browser-background-old: var(--ctp-crust) !important;
-      --zen-main-browser-background-toolbar-old: var(--ctp-crust) !important;
-    }
+    --zen-main-browser-background: var(--ctp-frame) !important;
+    --zen-main-browser-background-toolbar: var(--ctp-frame) !important;
+    --zen-main-browser-background-old: var(--ctp-frame) !important;
+    --zen-main-browser-background-toolbar-old: var(--ctp-frame) !important;
   }
 
   /* Zen also writes each space's text color, accent and color scheme onto its <zen-workspace> */
@@ -386,6 +381,21 @@
     --toolbox-textcolor: var(--ctp-text) !important;
     --zen-primary-color: var(--ctp-accent) !important;
     color-scheme: var(--ctp-scheme) !important;
+  }
+
+  /*
+   * Sidebar in mantle, with its top and bottom button bars left in the crust frame, like the
+   * panels in Catppuccin for Zed. Compact mode floats the sidebar on its own background instead.
+   */
+  :root:not([zen-compact-mode="true"]) #navigator-toolbox {
+    background-color: var(--ctp-sidebar) !important;
+
+    & :is(#zen-sidebar-top-buttons, #zen-sidebar-foot-buttons) {
+      background-color: var(--ctp-frame) !important;
+      /* Stretch the band over the sidebar's side padding */
+      box-shadow: 0 0 0 var(--zen-toolbox-padding) var(--ctp-frame) !important;
+      clip-path: inset(0 calc(-1 * var(--zen-toolbox-padding))) !important;
+    }
   }
 }
 
@@ -413,6 +423,19 @@ zen-workspace,
 .tabbrowser-tab[zen-essential="true"] .tab-background {
   --zen-essential-tab-selected-bg: var(--ctp-surface0) !important;
   --zen-essential-tab-selected-bg-hover: var(--ctp-surface1) !important;
+}
+
+/* Zen's dark hover is the selected color, which the theme makes the same as the idle color */
+.tabbrowser-tab[zen-essential="true"]:hover {
+  &:not([visuallyselected], [multiselected="true"]) .tab-background {
+    background: var(--zen-toolbar-element-bg-hover) !important;
+  }
+
+  @media not -moz-pref("zen.theme.essentials-favicon-bg") {
+    &[visuallyselected] .tab-background {
+      background: var(--ctp-surface1) !important;
+    }
+  }
 }
 
 .tabbrowser-tab:is([visuallyselected], [multiselected]) .tab-label {
